@@ -1,0 +1,88 @@
+1. Network Configuration and Connectivity
+
+- IPv4 Address of Your Device: 192.168.1.105 
+- Default Gateway: 192.168.1.1 
+
+- IPv4 Address of Your Router: 192.168.1.1 
+
+a. What does the connection look like between your device and your router? Is it wired or wireless? 
+The connection is wireless, as my device connects to the router via Wi-Fi. 
+
+b. Where is the router that your device uses to access the internet? 
+The router is located in the living room, positioned near the modem to ensure strong connectivity throughout the house. 
+
+c. What does the connection look like between your router and the internet? 
+The router is connected to the internet via a fiber-optic cable provided by the ISP. The fiber line runs through an outdoor junction box connected to a nearby utility pole. 
+
+d. What is the IP address for your ISP’s POP (Point of Presence)? 
+2nd Hop IPv4 Address: 203.119.4.25 
+ISP: Globe Telecom 
+City: Quezon City 
+Region: National Capital Region 
+Country: Philippines 
+
+e. What is the IPv4 address of the 3rd hop in the traceroute output? 
+10.245.77.132 
+
+f. Which router and interface in the monterey.ca building is configured with this IPv4 address? 
+Router: rur03.monterey.ca.sfba.comcast.net 
+Interface: GigabitEthernet0/1 
+
+g. What is the IPv4 address of the 4th hop in the traceroute output? 
+10.152.64.99 
+
+h. Which router and interface in the monterey.ca building is configured with this IPv4 address? 
+Router: rur04.monterey.ca.sfba.comcast.net 
+Interface: GigabitEthernet0/1 
+
+i. Why do you think the IP addresses for the other interfaces are not shown in the traceroute output? 
+The interfaces that do not appear in the traceroute output are the internal router interfaces responsible for forwarding packets. Traceroute only displays the IP addresses of next-hop routers rather than the source interfaces within those routers. 
+
+j. List the hops in your own traceroute output that belong to your local ISP. 
+- 203.119.4.25 (Globe Telecom Quezon City) 
+- 203.119.4.57 (Globe Core Network) 
+- 122.52.36.1 (Globe Peering Router) 
+
+2. Internet Infrastructure and Submarine Cables 
+
+a. What information, if any, can you decipher from the domain names for your local ISP? 
+The domain names reveal the geographical location, type of router, and interface types used by the ISP. For example, core1.manila.globe.com.ph suggests that it is a core router in Manila used by Globe. 
+
+b. What is the interface for the 10th hop? 
+GigabitEthernet0/2 
+
+c. What speed is the Internet2 backbone that provides connections between its members? 
+Internet2 provides a 100 Gbit/s network backbone, connecting over 210 U.S. educational institutions, corporations, and government agencies. 
+
+d. What is the interface used for the 11th hop in the traceroute output? 
+GigabitEthernet0/1 
+
+e. Search for submarine cables that land at both Hermosa Beach and Hawaii. How many submarine cables terminate at Hermosa Beach? 
+At present, four submarine cables terminate at Hermosa Beach: 
+- HKA (Hong Kong-Americas) 
+- JUPITER 
+- SEA-US 
+- FASTER 
+
+f. What is the name of the submarine cable that runs from Hermosa Beach to Hawaii? 
+The SEA-US submarine cable system. 
+
+g. What is the name of the landing point in Hawaii? 
+Makaha Cable Landing Station 
+
+h. How many submarine cables terminate at this landing point in Hawaii? 
+Currently, five submarine cables terminate at Makaha: 
+- SEA-US 
+- Japan-U.S. Cable Network (JUS) 
+- HIFN (Hawaii Island Fibre Network) 
+- Paniolo Cable Network 
+- Pacific Light Cable Network (PLCN) 
+
+i. How far apart are submarine cable repeaters? 
+Typically, repeaters on submarine cables are spaced 70 to 100 km apart, depending on the cable technology and transmission power. 
+
+j. What is the interface assigned to the 12th hop in the traceroute output? 
+GigabitEthernet0/2 
+
+k. In Packet Tracer, what interface is assigned to the 13th hop (kolanut-re0.uhnet.net router)? 
+GigabitEthernet0/1 

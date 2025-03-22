@@ -1,0 +1,29 @@
+PC1 cannot ping PC2 because PC1 has an incorrect IP address that doesn't belong to the network it's attached to.
+
+Solution: Change PC1's IP address to match the documentation (192.168.10.10/24 with default gateway 192.168.10.1)
+
+
+Devices cannot ping S2 and S2 cannot ping any device because S2 is missing an IP address.
+
+Solution: Configure S2 with the proper IP address (192.168.11.2/24 with default gateway 192.168.11.1)
+
+
+Remote devices cannot ping PC4 because PC4 has the wrong default gateway configured.
+
+Solution: Correct PC4's default gateway to 192.168.11.1
+
+
+Remote devices cannot ping S1 because S1 is missing a default gateway configuration.
+
+Solution: Configure S1 with the proper default gateway (192.168.10.1)
+
+
+
+Testing and Verification Documentation
+The document recommends creating a testing matrix with these columns:
+
+Test (what connectivity is being tested)
+Successful? (Yes/No)
+Issues (what problem was identified)
+Solution (how to fix the problem)
+Verified (confirmation that the fix worked)

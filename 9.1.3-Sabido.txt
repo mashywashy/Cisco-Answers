@@ -1,0 +1,20 @@
+1. Were there different types of wires used to connect devices? Yes, copper and fiber
+2. Did the wires change the handling of the PDU in any way? No
+3. Did the Hub lose any of the information given to it? No
+4. What does the Hub do with MAC addresses and IP addresses? Nothing
+5. Did the wireless Access Point do anything with the information given to it? Yes. It repackaged it as wireless 802.11
+6. Was any MAC or IP address lost during the wireless transfer? No
+7. What was the highest OSI layer that the Hub and Access Point used? Layer 1
+8. Did the Hub or Access Point ever replicate a PDU that was rejected with a red “X”? Yes
+9. When examining the PDU Details tab, which MAC address appeared first, the source or the destination? Destination
+10. Why would the MAC addresses appear in this order? A switch can begin forwarding a frame to a known MAC address more quickly if the destination is listed first
+11. Was there a pattern to the MAC addressing in the simulation? No
+12. Did the switches ever replicate a PDU that was rejected with a red “X”? No
+13. Every time that the PDU was sent between the 10 network and the 172 network, there was a point where the MAC addresses suddenly changed. Where did that occur? It occurred at the Router
+14. Which device uses MAC addresses starting with 00D0? The Router
+15. To what devices did the other MAC addresses belong? To the sender and receiver
+16. Did the sending and receiving IPv4 addresses switch in any of the PDUs? No
+17. If you follow the reply to a ping, sometimes called a pong, do the sending and receiving IPv4 addresses switch? Yes
+18. What is the pattern to the IPv4 addressing in this simulation? Each port of a router requires a set of non-overlapping addresses
+19. Why do different IP networks need to be assigned to different ports of a router? The function of a router is to inter-connect different IP networks.
+20. If this simulation was configured with IPv6 instead of IPv4, what would be different? The IPv4 addresses would be replaced with IPv6 addresses, but everything else would be the same.

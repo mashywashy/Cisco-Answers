@@ -1,0 +1,36 @@
+Part 1
+2.b 9600
+2.d S1>
+3.a connect
+3.b telnet terminal traceroute, telnet terminal
+
+Part 2
+1.a Turn on privileged commands
+1.b enable
+1.b There is more than one command that begins with the letters ‘te’ because ‘te’ does not provide enough characters to make the command unique. The characters will continue to display, prompting the user for additional characters to make the command unique.
+
+1.c It changes from S1> to S1#, which indicates privileged EXEC mode.
+1.d One command starts with the letter ‘C’ in user EXEC mode.
+1.d 5 – clear, clock, configure, connect, and copy
+2.a Configuring from terminal, memory, or network [terminal]?
+2.b S1(config)#
+
+Part 3
+1.a UTC Mon Mar 1 1993 preceded by the hours, minutes, and seconds since the device started. The year is 1993.
+1.b % Incomplete command
+1.c set Set the time and date
+1.d hh:mm:ss Current Time
+1.d % Incomplete command
+
+2.b % Ambiguous command: “cl”
+2.b % Incomplete command.
+2.b S1#clock set 25:00:00
+^
+% Invalid input detected at '^' marker.
+
+
+2.b S1#clock set 15:00:00 32
+^
+% Invalid input detected at '^' marker.
+
+

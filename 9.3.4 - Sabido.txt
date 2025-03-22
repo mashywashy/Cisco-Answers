@@ -1,0 +1,82 @@
+Why are ND PDUs present?
+In order to send ICMPv6 ping packets to PCA2, PCA1 needs to know the MAC address of the destination. IPv6 ND requests this information on the network.
+
+Because the message starts with this event there is only an Outbound PDU. Under the OSI Model tab, what is the Message Type listed for ICMPv6?
+ICMPv6 Echo Message Type: 128
+
+What changed in the Layer 3 addressing?
+The destination address is now an IPv6 multicast address of FF02::1:FF00:B
+
+What Layer 2 addresses are shown?
+The source address is PCA1 MAC – 0001.427E.E8ED and the destination MAC address is 3333.FF00.000B
+
+When a host does not know the MAC address of the destination, a special multicast MAC address is used by IPv6 Neighbor Discovery as the Layer 2 destination address.
+
+Is there any difference between the In Layers and Out Layers for Layer 2?
+No. The switch does not alter Layer 2 information, it only forwards the frame.
+
+What addresses are displayed for the following?
+
+Ethernet II DEST ADDR: 0001.427E.E8ED
+
+Ethernet II SRC ADDR: 0040.0B02:.243E
+
+IPv6 SRC IP: 2001:db8:acad:1::b
+
+IPv6 DST IP: 2001:db8:acad:1::a
+
+l. Select the first NDP event at RTA. Why are there no Out Layers?
+The IPv6 address does not match the router’s address so it drops the packet.
+
+Does PCA1 now have all of the necessary information to communicate with PCA2?
+Yes, it now knows both the destination IPv6 address as well as the destination MAC address of PCA2.
+
+What is the ICMPv6 Echo Message Type?
+The ICMPv6 Echo Message Type is 129, an echo reply.
+
+Why weren’t there any NDP events?
+PCA1 already knows the MAC address of PCA2 so it doesn’t need to use Neighbor Discovery.
+
+What address is being used for the Src IP in the inbound PDU?
+The Link Local address for PCA1 – fe80::201:42ff:fe7e:e8ed
+
+What MAC address is being used for the destination MAC?
+0001.961d.6301, the MAC address of G0/0/0 of RTA
+
+What is missing in the outbound Layer 2 information?
+The destination MAC address must be determined for the IPv6 destination address.
+
+Were there any NDP events?
+No
+
+What does the destination MAC address correspond to?
+The router interface G0/0/1 on RTA
+
+Why is PCB1 using the router interface MAC address to make its ICMP PDUs?
+Because the destination device is on another network, PCB1 addresses the PDU to the default gateway interface MAC. RTA will determine how to address the PDU at Layer 2 to send it towards its destination.
+
+How many addresses are listed?
+4 – IPv6 global unicast and link local addresses and MAC addresses for PCA1 and PCB1
+
+What devices are these addresses associated with?
+PCA1 and PCB1
+
+Are there any entries for PCA2 listed (why or why not)?
+PCA2 has not communicated across the network yet.
+
+Are there entries for PCA2?
+Yes, the IPv6 address and MAC address for PCA2.
+
+Reflection Questions
+1. When does a device require the IPv6 Neighbor Discovery process?
+When the destination MAC address is not known. This process is similar to ARP with IPv4.
+
+2. How does a router help to minimize the amount of IPv6 Neighbor Discovery traffic on a network?
+The router keeps neighbor tables so that it doesn’t need to initiate ND for every destination host.
+
+How does IPv6 minimize the impact of the ND process on network hosts?
+It uses a multicast address so that only a handful of addresses would be listening to the Neighbor Discovery messages. IPv6 creates a specially crafted multicast destination MAC address which includes a portion of the node address.
+
+3. How does the Neighbor Discovery process differ when a destination host is on the same LAN and when it is on a remote LAN?
+When a destination host is on the same LAN segment only the device that matches the IPv6 address responds and other devices drop the packet. When the device is remote the gateway device (usually a router) provides the MAC address of the interface on the local interface for the destination MAC and then searches for the MAC address on the remote network. The router will then place the responding IPv6/MAC address pair in the IPv6 Neighbor table. (similar to an ARP table in IPv4)
+

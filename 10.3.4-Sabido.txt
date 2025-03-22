@@ -1,0 +1,98 @@
+
+
+a. Which command displays the statistics for all interfaces configured on a router?
+
+R1#show interfaces
+b. Which command displays the information about the Serial 0/0/0 interface only?
+
+R1#show interfaces serial 0/0/0
+c. Enter the command to display the statistics for the Serial 0/0/0 interface on R1 and answer the following questions:
+1) What is the IP address configured on R1? 209.165.200.225/30
+2) What is the bandwidth on the Serial 0/0/0 interface? 1544 kbits
+
+d. Enter the command to display the statistics for the GigabitEthernet 0/0 interface and answer the following questions:
+
+What is the IP address on R1? There is no IP address configured on the GigabitEthernet 0/0 interface.
+What is the MAC address of the GigabitEthernet 0/0 interface? 000d.bd6c.7d01
+What is the bandwidth on the GigabitEthernet 0/0 interface? 1000000 kbits
+
+a. Which command displays a brief summary of the current interfaces, statuses, and IP addresses assigned to them?
+
+R1#show ip interface brief
+b. Enter the command on each router and answer the following questions:
+1) How many serial interfaces are there on R1 and R2?
+Each router has 2 serial interfaces
+
+2) How many Ethernet interfaces are there on R1 and R2?
+R1 has 6 Ethernet interfaces and R2 has 2 Ethernet interfaces.
+
+3) Are all the Ethernet interfaces on R1 the same? If no, explain the difference(s).
+No, they are not. There are two Gigabit Ethernet interfaces and 4 Fast Ethernet interfaces. Gigabit Ethernet interfaces support speeds of up to 1,000,000,000 bits per second and Fast Ethernet interfaces support speeds of up to 1,000,000 bits per second.
+
+Step 3: Display the routing table on R1.
+a. What command displays the content of the routing table?
+
+R1#show ip route
+b. Enter the command on R1 and answer the following questions:
+1) How many connected routes are there (uses the C code)? 1
+2) Which route is listed? 209.165.200.224/30
+3) How does a router handle a packet destined for a network that is not listed in the routing table?
+A router will only send packets to a network listed in the routing table. If a network is not listed, the packet will be dropped.
+
+Part 2: Configure Router Interfaces
+Step 1: Configure the GigabitEthernet 0/0 interface on R1.
+a. Enter the following commands to address and activate the GigabitEthernet 0/0 interface on R1 :
+
+R1(config)# interface gigabitethernet 0/0
+R1(config-if)# ip address 192.168.10.1 255.255.255.0
+R1(config-if)# no shutdown
+%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to up
+b. It is good practice to configure a description for each interface to help document the network information. Configure an interface description indicating to which device it is connected.
+
+R1(config-if)# description LAN connection to S1
+c. R1 should now be able to ping PC1.
+
+R1(config-if)# end
+%SYS-5-CONFIG_I: Configured from console by console
+R1# ping 192.168.10.10
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.10.10, timeout is 2 seconds:
+.!!!!
+Success rate is 80 percent (4/5), round-trip min/avg/max = 0/2/8 ms
+Step 2: Configure the remaining Gigabit Ethernet Interfaces on R1 and R2.
+a. Use the information in the Addressing Table to finish the interface configurations for R1 and R2. For each interface, do the following:
+
+Enter the IP address and activate the interface.
+Configure an appropriate description.
+b. Verify interface configurations.
+
+Step 3: Back up the configurations to NVRAM.
+Save the configuration files on both routers to NVRAM. What command did you use? copy run start
+
+Part 3: Verify the Configuration
+Step 1: Use verification commands to check your interface configurations.
+a. Use the show ip interface brief command on both R1 and R2 to quickly verify that the interfaces are configured with the correct IP address and active.
+
+How many interfaces on R1 and R2 are configured with IP addresses and in the “up” and “up” state?
+3 on each router
+
+What part of the interface configuration is NOT displayed in the command output?
+The subnet mask
+
+What commands can you use to verify this part of the configuration?
+show run, show interfaces, show ip protocols
+
+b. Use the show ip route command on both R1 and R2 to view the current routing tables and answer the following questions:
+
+1) How many connected routes (uses the C code) do you see on each router? 3
+
+2) How many OSPF routes (uses the O code) do you see on each router?
+Both R1 and R2 show 2 OSPF routes.
+
+3) If the router knows all the routes in the network, then the number of connected routes and dynamically learned routes (OSPF) should equal the total number of LANs and WANs. How many LANs and WANs are in the topology? 5
+
+4) Does this number match the number of C and O routes shown in the routing table? yes
+
+

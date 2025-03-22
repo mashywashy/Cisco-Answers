@@ -1,0 +1,71 @@
+Part 1
+Step 2
+
+b. Answer the following questions:
+
+How many FastEthernet interfaces does the switch have?  - 24
+
+How many Gigabit Ethernet interfaces does the switch have? - 2
+
+What is the range of values shown for the vty lines? - 0 -15
+
+Which command will display the current contents of non-volatile random-access memory (NVRAM)?
+
+- show startup-configuration
+
+Why does the switch respond with startup-config is not present? 
+
+- It displays this message because the configuration file was not saved to NVRAM. Currently it is only located in RAM
+
+Part 2
+Step 2:
+
+Why is the login command required?
+
+- In order for the password checking process to work, it requires both the login and password commands
+
+Step 7:
+
+b. What is displayed for the enable secret password?  - $1$mERr$ILwq/b7kc.7X/ejA4Aosn0
+
+c. Why is the enable secret password displayed differently from what we configured?
+
+- The enable secret is shown in encrypted form, whereas the enable password is in plain text.
+
+Step 8:
+
+If you configure any more passwords on the switch, will they be displayed in the configuration file as plain text or in encrypted form? Explain why?
+
+The service password-encryption command encrypts all current and future passwords.
+
+Part 3
+Step 1:
+When will this banner be displayed?
+
+The message will be displayed when someone enters the switch through the console port.
+
+Why should every switch have a MOTD banner?
+
+Every switch should have a banner to warn unauthorized users that access is prohibited but can also be used for sending messages to network personnel/technicians (such as impending system shutdowns or who to contact for access)
+
+Part 4 
+Step 1:
+
+
+Step 2:
+What is the shortest, abbreviated version of the copy running-config startup-config command?  cop r s
+
+Step 3:
+Which command will display the contents of NVRAM?  - show startup-config
+
+Are all the changes that were entered recorded in the file? - Yes, it is the same as the running configuration.
+
+
+
+
+
+
+
+
+
+
