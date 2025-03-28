@@ -1,0 +1,87 @@
+Addressing Table:
+
+S1: VLAN 1, IP Address: 192.168.1.253, Subnet Mask: 255.255.255.0
+S2: VLAN 1, IP Address: 192.168.1.254, Subnet Mask: 255.255.255.0
+PC1: NIC, IP Address: 192.168.1.1, Subnet Mask: 255.255.255.0
+PC2: NIC, IP Address: 192.168.1.2, Subnet Mask: 255.255.255.0
+Part 1: Perform a Basic Configuration on S1 and S2
+
+Step 1: Configure S1 with a hostname:
+
+Command: S1(config)# hostname S1
+Step 2: Configure the console and encrypted privileged EXEC mode passwords:
+
+Console password: cisco
+Privileged EXEC mode password: class
+Step 3: Verify the password configurations for S1:
+
+Use the show run command to view the passwords.
+Step 4: Save the configuration file to NVRAM:
+
+Command: S1# copy running-config startup-config
+Part 2: Configure the PCs
+
+Step 1: Configure both PCs with IP addresses:
+
+PC1: IP address: 192.168.1.1, Subnet mask: 255.255.255.0
+PC2: IP address: 192.168.1.2, Subnet mask: 255.255.255.0
+Step 2: Test connectivity to switches:
+
+Ping command: PC> ping 192.168.1.253
+Expected result: Ping should be unsuccessful because the switches have not been configured with an IP address.
+Part 3: Configure the Switch Management Interface
+
+Step 1: Configure S1 with an IP address:
+
+Commands:
+
+Code
+S1# configure terminal
+S1(config)# interface vlan 1
+S1(config-if)# ip address 192.168.1.253 255.255.255.0
+S1(config-if)# no shutdown
+Reason for using the no shutdown command: The no shutdown command administratively places the interface in an active state.
+
+Step 2: Configure S2 with an IP address:
+
+Commands:
+Code
+S2# configure terminal
+S2(config)# interface vlan 1
+S2(config-if)# ip address 192.168.1.254 255.255.255.0
+S2(config-if)# no shutdown
+Step 3: Verify the IP address configuration on S1 and S2:
+
+Commands: show ip interface brief, show running-config
+Step 4: Save configurations for S1 and S2 to NVRAM:
+
+Command: copy running-config startup-config
+Step 5: Verify network connectivity:
+
+Ping commands:
+
+Code
+PC1> ping 192.168.1.254
+PC1> ping 192.168.1.253
+PC2> ping 192.168.1.253
+PC2> ping 192.168.1.254
+All pings should be successful. If the first ping result is 80%, retry; it should now be 100%.
+
+Summary of Commands:
+
+Code
+Switch> enable
+Switch# configure terminal
+Switch(config)# hostname S1
+S1(config)# line console 0
+S1(config-line)# password cisco
+S1(config-line)# login
+S1(config-line)# exit
+S1(config)# enable secret class
+S1(config)# banner motd #Authorized access only. Violators will be prosecuted to the full extent of the law.#
+S1(config)# interface vlan 1
+S1(config-if)# ip address 192.168.1.253 255.255.255.0
+S1(config-if)# no shutdown
+S1(config-if)# exit
+S1(config)# exit
+S1# copy running-config startup-config

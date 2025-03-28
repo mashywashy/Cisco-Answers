@@ -1,0 +1,120 @@
+Part 1: Verify the Default Router Configuration
+
+Step 1: Establish a console connection to R1.
+
+Connect using a Console cable to RS 232 on PCA and Console on R1.
+Access R1 via PCA > Desktop tab > Terminal.
+Step 2: Enter privileged mode and examine the current configuration.
+
+Enter privileged EXEC mode:
+
+Code
+Router> enable 
+Router#
+Show running configuration:
+
+Code
+Router# show running-config
+Answers to questions:
+
+Router’s hostname: Router
+Number of Fast Ethernet interfaces: 4
+Number of Gigabit Ethernet interfaces: 2
+Number of Serial interfaces: 2
+Range of values for vty lines: 0 – 4
+Display current contents of NVRAM:
+
+Code
+Router# show startup-config
+Reason for "startup-config is not present" message: The configuration file was not saved to NVRAM and is only located in RAM.
+
+Part 2: Configure and Verify the Initial Router Configuration
+
+Step 1: Configure the initial settings on R1.
+
+Configure R1 as the hostname.
+Configure Message of the day text: Unauthorized access is strictly prohibited.
+Encrypt all plain text passwords.
+Privileged EXEC, unencrypted: cisco
+Privileged EXEC, encrypted: itsasecret
+Console: letmein
+Step 2: Verify the initial settings on R1.
+
+Command to verify initial settings:
+
+Code
+show running-config
+Message after exiting current console session:
+
+Code
+R1 con0 is now available
+
+Press RETURN to get started.
+MOTD message:
+
+Code
+Unauthorized access is strictly prohibited.
+
+User Access Verification
+
+Password:
+Reason for having an MOTD banner: Warn unauthorized users that access is prohibited and send messages to network personnel.
+
+Console line command to configure if not prompted for a password:
+
+Code
+R1(config-line)# login
+Enable secret password overrides the enable password.
+
+Service password-encryption command encrypts all current and future passwords.
+
+Part 3: Save the Running Configuration File
+
+Step 1: Save the configuration file to NVRAM.
+
+Command to save configuration to NVRAM:
+Code
+copy running-config startup-config
+Shortest, unambiguous version of the command:
+Code
+copy r s
+Command to display the contents of NVRAM:
+Code
+show startup-configuration or show start
+Step 2: Optional bonus: Save the startup configuration file to flash.
+
+Examine contents of flash:
+
+Code
+R1# show flash
+Number of files stored in flash: 3
+
+File that is the IOS image:
+
+Code
+c1900-universalk9-mz.SPA.151-4.M4.bin
+Save the startup configuration file to flash:
+
+Code
+R1# copy startup-config flash
+Verify the startup configuration file in flash:
+
+Code
+R1# show flash
+Script Answer Key:
+
+Code
+enable
+configure terminal
+hostname R1
+line console 0
+password letmein
+login
+exit
+enable password cisco
+enable secret itsasecret
+service password-encryption
+banner motd $Unauthorized access is strictly prohibited.$
+exit
+copy running-config startup-config
+copy startup-config flash:
